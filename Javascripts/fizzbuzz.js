@@ -16,11 +16,9 @@ var main = function(){
 	var i = 1, j, k,//Loop counter.
 		stringArr1 = [], //Holds string of numbers, "Fizz", "Buzz", and "FizzBuzz" for fizzbuzz_1.
 		stringArr2 = [], //Holds string of fizzbuzz_2.
-		start, //Start parameter for fizzbuzz_2.
-		end, //End parameter for fizzbuzz_2.
-		$ul = $("<ul>");
+		stringArr3 = []; //Holds string of fizzbuzz_3.
 
-	//Purpose: Solve FizzBuzz problem.
+	//Purpose: Solve FizzBuzz problem for integers 1 - 100.
 	function fizzbuzz_1(){
 		for(i; i <= 100; i++){
 			if((i % 3 === 0) && (i % 5 !== 0)){
@@ -40,6 +38,7 @@ var main = function(){
 
 	}//End fizzbuzz_1.
 
+	//Purpose: Solve FizzBuzz problem for integers between start and end (inclusive).
 	function fizzbuzz_2(start, end){
 		if(start <= end){
 			for(j = start; j <= end; j++){
@@ -64,8 +63,34 @@ var main = function(){
 
 	}//End fizzbuzz_2.
 
+	//Purpose: Takes in array of numbers to apply FizzBuzz on.
+	function fizzbuzz_3(tempArray){
+		if(tempArray.length > 0){
+			for(k = 0; k < tempArray.length; k++){
+				if((tempArray[k] % 3 === 0) && (tempArray[k] % 5 !== 0)){
+					stringArr3.push("Fizz");
+				} else if((tempArray[k] % 3 !== 0) && (tempArray[k] % 5 === 0)){
+					stringArr3.push("Buzz");
+				} else if((tempArray[k] % 3 === 0) && (tempArray[k] % 5 === 0)){
+					stringArr3.push("FizzBuzz");
+				} else{
+					stringArr3.push(tempArray[k]);
+				}
+			}
+		}
+
+		stringArr3.forEach(function(element){
+			$("body .fizzbuzz_3").append($("<p>").text(element));
+		});
+
+	}//End fizzbuzz_3.
+	
 	fizzbuzz_1();
-	fizzbuzz_2(11, 33);
+	fizzbuzz_2(200, 300);
+	fizzbuzz_3([101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115]);
 };
 
 $(document).ready(main);
+
+/*t
+fflvd*/

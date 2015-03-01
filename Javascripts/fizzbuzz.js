@@ -19,7 +19,7 @@
 var main = function(){
 	"use strict";
 
-	var i = 1, j, k,//Loop counter.
+	var i = 1, j, k, v = 1, //Loop counters.
 		stringArr1 = [], //Holds string of numbers, "Fizz", "Buzz", and "FizzBuzz" for fizzbuzz_1.
 		stringArr2 = [], //Holds string of fizzbuzz_2.
 		stringArr3 = [], //Holds string of fizzbuzz_3.
@@ -92,16 +92,30 @@ var main = function(){
 
 	}//End fizzbuzz_3.
 	
-	function fizzbuzz_4(arg){
-		console.log(arg.divisibleByThree);
-		console.log(arg.divisibleByFive);
+	//Purpose: Take an object that specifies the words to be printed instead of "Fizz" and "Buzz".
+	function fizzbuzz_4(obj){
+
+		for(v; v <= 100; v++){
+			if((v % 3 === 0) && (v % 5 !== 0)){
+				stringArr4.push(obj.divisibleByThree);
+			} else if((v % 3 !== 0) && (v % 5 === 0)){
+				stringArr4.push(obj.divisibleByFive);
+			} else if((v % 3 === 0) && (v % 5 === 0)){
+				stringArr4.push(obj.divisibleByThree + obj.divisibleByFive);
+			} else{
+				stringArr4.push(v);
+			}
+		}
+
+		stringArr4.forEach(function(element){
+			$("body .fizzbuzz_4").append($("<p>").text(element));
+		});
 	}
-	/*
+
 	fizzbuzz_1();
 	fizzbuzz_2(200, 300);
 	fizzbuzz_3([101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115]);
-	*/
-	fizzbuzz_4({divisibleByThree: "Foo", divisibleByFive: "Bar"});
+	fizzbuzz_4({divisibleByThree: "foo", divisibleByFive: "bar"});
 };
 
 $(document).ready(main);

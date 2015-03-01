@@ -32,13 +32,12 @@ var main = function(){
 			} else{
 				stringArr1.push(i);
 			}
-		}//End for-loop.
+		}
 
 		stringArr1.forEach(function(element){
-			$ul.append($("<li>").text(element));
+			$("body .fizzbuzz_1").append($("<p>").text(element));
 		});
 
-		$("body .fizzbuzz_1").append($ul);
 	}//End fizzbuzz_1.
 
 	function fizzbuzz_2(start, end){
@@ -55,14 +54,14 @@ var main = function(){
 				}
 			}
 		} else{
+			$("body .fizzbuzz_2").append($("<p>").text("ERROR: second parameter is larger than the first"));
 			console.log("ERROR: start is greater than end.");
 		}
 
 		stringArr2.forEach(function(element){
-			$ul.append($("<li>").text(element));
+			$("body .fizzbuzz_2").append($("<p>").text(element));
 		});
 
-		$("body .fizzbuzz_2").append($ul);
 	}//End fizzbuzz_2.
 
 	fizzbuzz_1();

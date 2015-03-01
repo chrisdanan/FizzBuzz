@@ -71,17 +71,17 @@ var main = function(){
 	}//End fizzbuzz_2.
 
 	//Purpose: Takes in array of numbers to apply FizzBuzz on.
-	function fizzbuzz_3(tempArray){
-		if(tempArray.length > 0){
-			for(k = 0; k < tempArray.length; k++){
-				if((tempArray[k] % 3 === 0) && (tempArray[k] % 5 !== 0)){
+	function fizzbuzz_3(arr){
+		if(arr.length > 0){
+			for(k = 0; k < arr.length; k++){
+				if((arr[k] % 3 === 0) && (arr[k] % 5 !== 0)){
 					stringArr3.push("Fizz");
-				} else if((tempArray[k] % 3 !== 0) && (tempArray[k] % 5 === 0)){
+				} else if((arr[k] % 3 !== 0) && (arr[k] % 5 === 0)){
 					stringArr3.push("Buzz");
-				} else if((tempArray[k] % 3 === 0) && (tempArray[k] % 5 === 0)){
+				} else if((arr[k] % 3 === 0) && (arr[k] % 5 === 0)){
 					stringArr3.push("FizzBuzz");
 				} else{
-					stringArr3.push(tempArray[k]);
+					stringArr3.push(arr[k]);
 				}
 			}
 		}

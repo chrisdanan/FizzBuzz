@@ -23,7 +23,8 @@ var main = function(){
 		stringArr1 = [], //Holds string of numbers, "Fizz", "Buzz", and "FizzBuzz" for fizzbuzz_1.
 		stringArr2 = [], //Holds string of fizzbuzz_2.
 		stringArr3 = [], //Holds string of fizzbuzz_3.
-		stringArr4 = []; //Holds string of fizzbuzz_4.
+		stringArr4 = [], //Holds string of fizzbuzz_4.
+		stringArr5 = []; //Holds string of fizzbuzz_5.
 
 	//Purpose: Solve FizzBuzz problem for integers 1 - 100.
 	function fizzbuzz_1(){
@@ -112,10 +113,16 @@ var main = function(){
 		});
 	}
 
+	function fizzbuzz_5(){
+		console.log("Hello Vane");
+	}
+	/*
 	fizzbuzz_1();
 	fizzbuzz_2(200, 300);
 	fizzbuzz_3([101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115]);
 	fizzbuzz_4({divisibleByThree: "foo", divisibleByFive: "bar"});
+	*/
+	fizzbuzz_5();
 };
 
 $(document).ready(main);

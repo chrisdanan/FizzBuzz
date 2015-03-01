@@ -13,8 +13,11 @@
 var main = function(){
 	"use strict";
 
-	var i = 1, //Loop counter.
-		stringArr1 = [], //Holds string of numbers, "Fizz", "Buzz", and "FizzBuzz".
+	var i = 1, j, k,//Loop counter.
+		stringArr1 = [], //Holds string of numbers, "Fizz", "Buzz", and "FizzBuzz" for fizzbuzz_1.
+		stringArr2 = [], //Holds string of fizzbuzz_2.
+		start, //Start parameter for fizzbuzz_2.
+		end, //End parameter for fizzbuzz_2.
 		$ul = $("<ul>");
 
 	//Purpose: Solve FizzBuzz problem.
@@ -36,9 +39,34 @@ var main = function(){
 		});
 
 		$("body .fizzbuzz_1").append($ul);
-	}
+	}//End fizzbuzz_1.
+
+	function fizzbuzz_2(start, end){
+		if(start <= end){
+			for(j = start; j <= end; j++){
+				if((j % 3 === 0) && (j % 5 !== 0)){
+					stringArr2.push("Fizz");
+				} else if((j % 3 !== 0) && (j % 5 ===0)){
+					stringArr2.push("Buzz");
+				} else if((j % 3 === 0) && (j % 5 === 0)){
+					stringArr2.push("FizzBuzz");
+				} else{
+					stringArr2.push(j);
+				}
+			}
+		} else{
+			console.log("ERROR: start is greater than end.");
+		}
+
+		stringArr2.forEach(function(element){
+			$ul.append($("<li>").text(element));
+		});
+
+		$("body .fizzbuzz_2").append($ul);
+	}//End fizzbuzz_2.
 
 	fizzbuzz_1();
+	fizzbuzz_2(11, 33);
 };
 
 $(document).ready(main);

@@ -5,6 +5,12 @@
  		   From the book: 	Write a program that prints the numbers from 1 to 100. 
  		   					But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz.” 
  		   					For numbers which are multiples of both three and five print “FizzBuzz.” 
+ *References:
+ 	-Help on JavaScript objects:
+ 	 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
+ 	 http://stackoverflow.com/questions/7764536/pass-object-to-javascript-function
+ 	-Help on how to use config for JSHint:
+ 	 http://jshint.com/docs/
 */
 
 // Client-side code
@@ -16,7 +22,8 @@ var main = function(){
 	var i = 1, j, k,//Loop counter.
 		stringArr1 = [], //Holds string of numbers, "Fizz", "Buzz", and "FizzBuzz" for fizzbuzz_1.
 		stringArr2 = [], //Holds string of fizzbuzz_2.
-		stringArr3 = []; //Holds string of fizzbuzz_3.
+		stringArr3 = [], //Holds string of fizzbuzz_3.
+		stringArr4 = []; //Holds string of fizzbuzz_4.
 
 	//Purpose: Solve FizzBuzz problem for integers 1 - 100.
 	function fizzbuzz_1(){
@@ -85,9 +92,16 @@ var main = function(){
 
 	}//End fizzbuzz_3.
 	
+	function fizzbuzz_4(arg){
+		console.log(arg.divisibleByThree);
+		console.log(arg.divisibleByFive);
+	}
+	/*
 	fizzbuzz_1();
 	fizzbuzz_2(200, 300);
 	fizzbuzz_3([101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115]);
+	*/
+	fizzbuzz_4({divisibleByThree: "Foo", divisibleByFive: "Bar"});
 };
 
 $(document).ready(main);

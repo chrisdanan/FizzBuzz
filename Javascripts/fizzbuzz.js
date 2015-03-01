@@ -16,21 +16,26 @@ var main = function(){
 	var i = 1, //Loop counter.
 		stringArr = []; //Holds string of numbers, "Fizz", "Buzz", and "FizzBuzz".
 
-	for(i; i <= 100; i++){
-		if((i % 3 === 0) && (i % 5 !== 0)){
-			stringArr.push("Fizz");
-		} else if((i % 3 !== 0) && (i % 5 === 0)){
-			stringArr.push("Buzz");
-		} else if((i % 3 === 0) && (i % 5 === 0)){
-			stringArr.push("FizzBuzz");
-		} else{
-			stringArr.push(i);
-		}
-	}//End for-loop.
+	//Purpose: Solve FizzBuzz problem.
+	function fizzbuzz_1(){
+		for(i; i <= 100; i++){
+			if((i % 3 === 0) && (i % 5 !== 0)){
+				stringArr.push("Fizz");
+			} else if((i % 3 !== 0) && (i % 5 === 0)){
+				stringArr.push("Buzz");
+			} else if((i % 3 === 0) && (i % 5 === 0)){
+				stringArr.push("FizzBuzz");
+			} else{
+				stringArr.push(i);
+			}
+		}//End for-loop.
 
-	stringArr.forEach(function(element){
-		console.log(element);
-	});
+		stringArr.forEach(function(element){
+			console.log(element);
+		});
+	}
+
+	fizzbuzz_1();
 };
 
 $(document).ready(main);

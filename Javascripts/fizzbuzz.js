@@ -14,25 +14,28 @@ var main = function(){
 	"use strict";
 
 	var i = 1, //Loop counter.
-		stringArr = []; //Holds string of numbers, "Fizz", "Buzz", and "FizzBuzz".
+		stringArr1 = [], //Holds string of numbers, "Fizz", "Buzz", and "FizzBuzz".
+		$ul = $("<ul>");
 
 	//Purpose: Solve FizzBuzz problem.
 	function fizzbuzz_1(){
 		for(i; i <= 100; i++){
 			if((i % 3 === 0) && (i % 5 !== 0)){
-				stringArr.push("Fizz");
+				stringArr1.push("Fizz");
 			} else if((i % 3 !== 0) && (i % 5 === 0)){
-				stringArr.push("Buzz");
+				stringArr1.push("Buzz");
 			} else if((i % 3 === 0) && (i % 5 === 0)){
-				stringArr.push("FizzBuzz");
+				stringArr1.push("FizzBuzz");
 			} else{
-				stringArr.push(i);
+				stringArr1.push(i);
 			}
 		}//End for-loop.
 
-		stringArr.forEach(function(element){
-			console.log(element);
+		stringArr1.forEach(function(element){
+			$ul.append($("<li>").text(element));
 		});
+
+		$("body .fizzbuzz_1").append($ul);
 	}
 
 	fizzbuzz_1();

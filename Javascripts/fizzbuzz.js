@@ -1,6 +1,6 @@
 /*Name: Christopher Dancarlo Danan
  *Created: February 28, 2015
- *Modified: February 28, 2015
+ *Modified: March 1, 2015
  *Purpose: Solve the FizzBuzz problem.
  		   From the book: 	Write a program that prints the numbers from 1 to 100. 
  		   					But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz.” 
@@ -13,6 +13,7 @@
  	 http://jshint.com/docs/
 */
 
+//JSHint config code:
 // Client-side code
 /* jshint browser: true, jquery: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 4, latedef: true, newcap: true, nonew: true, quotmark: double, strict: true, undef: true, unused: true */
 
@@ -29,17 +30,22 @@ var main = function(){
 	//Purpose: Solve FizzBuzz problem for integers 1 - 100.
 	function fizzbuzz_1(){
 		for(i; i <= 100; i++){
+			//Replace multiples of 3 with "Fizz".
 			if((i % 3 === 0) && (i % 5 !== 0)){
 				stringArr1.push("Fizz");
+			//Replace multiples of 5 with "Buzz".
 			} else if((i % 3 !== 0) && (i % 5 === 0)){
 				stringArr1.push("Buzz");
+			//Replace multiples of both 3 and 5 with "FizzBuzz".
 			} else if((i % 3 === 0) && (i % 5 === 0)){
 				stringArr1.push("FizzBuzz");
+			//All other numbers remain as they are.
 			} else{
 				stringArr1.push(i);
 			}
 		}
 
+		//Show output of function on web page.
 		stringArr1.forEach(function(element){
 			$("body .fizzbuzz_1").append($("<p>").text(element));
 		});
@@ -48,6 +54,7 @@ var main = function(){
 
 	//Purpose: Solve FizzBuzz problem for integers between start and end (inclusive).
 	function fizzbuzz_2(start, end){
+		//Ensure that start is less than or equal to end for loop to work properly.
 		if(start <= end){
 			for(j = start; j <= end; j++){
 				if((j % 3 === 0) && (j % 5 !== 0)){
@@ -60,15 +67,16 @@ var main = function(){
 					stringArr2.push(j);
 				}
 			}
+
+			stringArr2.forEach(function(element){
+				$("body .fizzbuzz_2").append($("<p>").text(element));
+			});
+
+		//Display error message that start is greater than end.
 		} else{
-			$("body .fizzbuzz_2").append($("<p>").text("ERROR: second parameter is larger than the first"));
+			alert("Start parameter is greater than end parameter in fizzbuzz_2");
 			console.log("ERROR: start is greater than end.");
 		}
-
-		stringArr2.forEach(function(element){
-			$("body .fizzbuzz_2").append($("<p>").text(element));
-		});
-
 	}//End fizzbuzz_2.
 
 	//Purpose: Takes in array of numbers to apply FizzBuzz on.
@@ -88,8 +96,9 @@ var main = function(){
 			}
 
 			stringArr3.forEach(function(element){
-			$("body .fizzbuzz_3").append($("<p>").text(element));
-		});
+				$("body .fizzbuzz_3").append($("<p>").text(element));
+			});
+			
 		} else{
 			alert("Array for fizzbuzz_3 has no elements in it");
 			console.log("No output for fizzbuzz_3 because arr has no elements.");
@@ -115,8 +124,9 @@ var main = function(){
 		stringArr4.forEach(function(element){
 			$("body .fizzbuzz_4").append($("<p>").text(element));
 		});
-	}
+	}//End fizzbuzz_4.
 
+	//Purpose: Combine fizzbuzz_3 and fizzbuzz_5.
 	function fizzbuzz_5(arr, obj){
 		if(arr.length > 0){
 			for(d = 0; d < arr.length; d++){
@@ -138,13 +148,13 @@ var main = function(){
 			alert("Array for fizzbuzz_5 has no elements in it");
 			console.log("No output for fizzbuzz_5 because arr has no elements");
 		}
-	}
+	}//End fizzbuzz_5.
 
 	fizzbuzz_1();
 	fizzbuzz_2(200, 300);
 	fizzbuzz_3([101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115]);
 	fizzbuzz_4({divisibleByThree: "foo", divisibleByFive: "bar"});
-	fizzbuzz_5([111, 333, 90, 1, 2, 3, 4, 5], {divisibleByThree: "Hello", divisibleByFive: "Vane"});
+	fizzbuzz_5([101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115], {divisibleByThree: "foo", divisibleByFive: "bar"});
 };
 
 $(document).ready(main);

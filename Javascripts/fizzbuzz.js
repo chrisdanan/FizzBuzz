@@ -19,7 +19,7 @@
 var main = function(){
 	"use strict";
 
-	var i = 1, j, k, v = 1, //Loop counters.
+	var i = 1, j, k, v = 1, d,//Loop counters.
 		stringArr1 = [], //Holds string of numbers, "Fizz", "Buzz", and "FizzBuzz" for fizzbuzz_1.
 		stringArr2 = [], //Holds string of fizzbuzz_2.
 		stringArr3 = [], //Holds string of fizzbuzz_3.
@@ -73,6 +73,7 @@ var main = function(){
 
 	//Purpose: Takes in array of numbers to apply FizzBuzz on.
 	function fizzbuzz_3(arr){
+		//Make sure the array has some elements in it.
 		if(arr.length > 0){
 			for(k = 0; k < arr.length; k++){
 				if((arr[k] % 3 === 0) && (arr[k] % 5 !== 0)){
@@ -85,11 +86,14 @@ var main = function(){
 					stringArr3.push(arr[k]);
 				}
 			}
-		}
 
-		stringArr3.forEach(function(element){
+			stringArr3.forEach(function(element){
 			$("body .fizzbuzz_3").append($("<p>").text(element));
 		});
+		} else{
+			alert("Array for fizzbuzz_3 has no elements in it");
+			console.log("No output for fizzbuzz_3 because arr has no elements.");
+		}
 
 	}//End fizzbuzz_3.
 	
@@ -113,16 +117,34 @@ var main = function(){
 		});
 	}
 
-	function fizzbuzz_5(){
-		console.log("Hello Vane");
+	function fizzbuzz_5(arr, obj){
+		if(arr.length > 0){
+			for(d = 0; d < arr.length; d++){
+				if((arr[d] % 3 === 0) && (arr[d] % 5 !== 0)){
+					stringArr5.push(obj.divisibleByThree);
+				} else if((arr[d] % 3 !== 0) && (arr[d] % 5 === 0)){
+					stringArr5.push(obj.divisibleByFive);
+				} else if((arr[d] % 3 === 0) && (arr[d] % 5 === 0)){
+					stringArr5.push(obj.divisibleByThree + obj.divisibleByFive);
+				} else{
+					stringArr5.push(arr[d]);
+				}
+			}
+
+			stringArr5.forEach(function(element){
+				$("body .fizzbuzz_5").append($("<p>").text(element));
+			});
+		} else{
+			alert("Array for fizzbuzz_5 has no elements in it");
+			console.log("No output for fizzbuzz_5 because arr has no elements");
+		}
 	}
-	/*
+
 	fizzbuzz_1();
 	fizzbuzz_2(200, 300);
 	fizzbuzz_3([101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115]);
 	fizzbuzz_4({divisibleByThree: "foo", divisibleByFive: "bar"});
-	*/
-	fizzbuzz_5();
+	fizzbuzz_5([111, 333, 90, 1, 2, 3, 4, 5], {divisibleByThree: "Hello", divisibleByFive: "Vane"});
 };
 
 $(document).ready(main);
